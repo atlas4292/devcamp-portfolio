@@ -12,6 +12,8 @@
     <%= f.label :body %>
     <%= f.text_area :body %>
   </div>
+
+  <!-- Nested attribute support on the view side of the MVC -->
   <ul>
     <%= f.fields_for :technologies do |technology_form| %>
       <li>
