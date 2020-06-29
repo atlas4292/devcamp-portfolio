@@ -5,11 +5,11 @@ module DeviseWhitelist
   # `params.require(:blog).permit(:title, :body)`    BUT we cannot
 
   included do
-    before_filter :configure_permitted_parameters, if: :devise_controller?
+    before_action :configure_permitted_parameters, if: :devise_controller?
   end
 
   def configure_permitted_parameters
-    device_parameter_sanitize.permit(:sign_up, keys: [:name])
-    device_parameter_sanitize.permit(:account_update, keys: [:name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name])
   end
 end
