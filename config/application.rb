@@ -29,6 +29,10 @@ module DevcampPortfolio
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
+    # Below is an example if you wanted to create an application that allows all form input parameters
+    # NOTE: this also overrides each individual controllers permitted parameter settings
+    #config.action_controller.permit_all_parameters = true
+
     # Don't generate system test files.
     config.generators.system_tests = nil
   end

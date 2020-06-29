@@ -8,6 +8,8 @@ class PortfoliosController < ApplicationController
   end
 
   def angular
+    # This method allows the controller to display items only referencing angular by using the created angular keyword
+    # created within the portfolio model -- note there are two methodologies utilized to create this parameter in the model
     @angular_portfolio_items = Portfolio.angular
   end
 
@@ -17,7 +19,7 @@ class PortfoliosController < ApplicationController
   end
 
   def create
-    @portfolio_item = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body, technologies_attributes: [:name]))
+    @portfolio_item = Portfolio.new(portfolio_params)
 
     respond_to do |format|
       if @portfolio_item.save
@@ -36,7 +38,7 @@ class PortfoliosController < ApplicationController
     @portfolio_item = Portfolio.find(params[:id])
 
     respond_to do |format|
-      if @portfolio_item.update(params.require(:portfolio).permit(:title, :subtitle, :body))
+      if @portfolio_item.update(portfolio_params)
         format.html { redirect_to portfolios_path, notice: 'The record successfully updated.' }
         format.json { render :show, status: :ok, location: @blog }
       else
@@ -57,6 +59,16 @@ class PortfoliosController < ApplicationController
       format.html { redirect_to portfolios_url, notice: 'Deleted the record successfully' }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def portfolio_params
+    params.require(:portfolio).permit(:title,
+                                      :subtitle,
+                                      :body,
+                                      technologies_attributes: [:name]
+    )
   end
 
 end

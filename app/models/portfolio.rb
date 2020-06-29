@@ -1,5 +1,5 @@
 class Portfolio < ApplicationRecord
-  has_many :technologies
+  has_many :technologies, dependent: :destroy
 
   # For nested attributes. This one says take many technologies as long as the name is not blank using lambda ->
   accepts_nested_attributes_for :technologies, reject_if: ->(attrs) { attrs['name'].blank? }

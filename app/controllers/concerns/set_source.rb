@@ -1,6 +1,7 @@
 module SetSource
   extend ActiveSupport::Concern
 
+  # This concern adds the basic support for sessions. Sessions
   included do
     before_action :set_source
   end
