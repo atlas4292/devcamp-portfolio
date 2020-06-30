@@ -1,5 +1,5 @@
 class PortfoliosController < ApplicationController
-  #before_action :set_portfolio_item, only: [:edit, :show, :update, :destroy]
+  before_action :set_portfolio_item, only: [:edit, :show, :update, :destroy]
 
   # Apply our custom layout
   layout 'portfolio'
@@ -34,13 +34,9 @@ class PortfoliosController < ApplicationController
   end
 
   def edit
-    @portfolio_item = Portfolio.find(params[:id])
-
   end
 
   def update
-    @portfolio_item = Portfolio.find(params[:id])
-
     respond_to do |format|
       if @portfolio_item.update(portfolio_params)
         format.html { redirect_to portfolios_path, notice: 'The record successfully updated.' }
@@ -53,11 +49,11 @@ class PortfoliosController < ApplicationController
   end
 
   def show
-    @portfolio_item = Portfolio.find(params[:id])
+    # Another debugging tool that opens a pry console with this placement
+    # binding.pry
   end
 
   def destroy
-    @portfolio_item = Portfolio.find(params[:id])
     @portfolio_item.destroy
     respond_to do |format|
       format.html { redirect_to portfolios_url, notice: 'Deleted the record successfully' }
@@ -71,8 +67,10 @@ class PortfoliosController < ApplicationController
     params.require(:portfolio).permit(:title,
                                       :subtitle,
                                       :body,
-                                      technologies_attributes: [:name]
-    )
+                                      technologies_attributes: [:name])
   end
 
+  def set_portfolio_items
+    @portfolio_items = Portfolio.find(params[:id])
+  end
 end

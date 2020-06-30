@@ -17,4 +17,7 @@ class User < ApplicationRecord
     self.name.split.last
   end
 
+  def get_facebook_message
+  end
+
 end
