@@ -47,4 +47,5 @@ gem 'devise', '~> 4.7', '>= 4.7.2'
 gem 'friendly_id', '~> 5.1.0'
 gem 'ostruct', '~> 0.1.0'
 gem 'bootstrap', '~> 4.5.0'
-gem 'atlas_view_tool', git: 'https://github.com/northernlights176/atlas_view_tool'
+#gem 'atlas_view_tool', git: 'https://github.com/northernlights176/atlas_view_tool' without sending to rubygems (below is with)
+gem 'atlas_view_tool', '~> 0.1.0'
