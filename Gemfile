@@ -50,3 +50,4 @@ gem 'bootstrap', '~> 4.5.0'
 #gem 'atlas_view_tool', git: 'https://github.com/northernlights176/atlas_view_tool' without sending to rubygems (below is with)
 gem 'atlas_view_tool', '~> 0.1.0'
 gem 'petergate', '~> 2.0', '>= 2.0.1'
+gem 'wdm', '>= 0.1.0'

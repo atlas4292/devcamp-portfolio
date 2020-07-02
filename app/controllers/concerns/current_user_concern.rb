@@ -7,11 +7,19 @@ module CurrentUserConcern
   end
 
   def guest_user
-    OpenStruct.new(name: 'Guest User',
-                   first_name: 'Guest',
-                   last_name: 'User',
-                   email: 'guest@somewhere.com'
-                  )
+    # Old way without using self-created model
+    # OpenStruct. new(name: 'Guest User',
+    #               first_name: 'Guest',
+    #               last_name: 'User',
+    #               email: 'guest@somewhere.com')
+
+    # New way from our model
+    guest = GuestUser.new
+    guest.name = 'Guest User'
+    guest.first_name = 'Guest'
+    guest.last_name = 'User'
+    guest.email = 'guest@somewhere.com'
+    guest
   end
 
 end
