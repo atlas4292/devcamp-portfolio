@@ -7,13 +7,13 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.special_blogs
+    @blogs = Blog.all_blogs
     # Puts debuggging example ##
     # puts "*" * 500
     # puts @blog.inspect
     # puts "*" * 500
     ############################
-    # Using byebug - insert in the KEY area!!!
+    # Using byebug - insert in the KEY area that needs debugging!!!
     #byebug
     @page_title = "My Portfolio Blog"
   end

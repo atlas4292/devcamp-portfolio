@@ -1,11 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Blogs</h1>
+<!--<h1>Blogs</h1>-->
 
+<%= render 'shared/blog_featured' %>
+
+<h3 class="pb-4 mb-4 font-italic border-bottom"><%= @page_title %></h3>
+
+<div class="blog-post">
+
+  <%= render @blogs. %>
+</div>
+
+<!--
 <table>
   <thead>
     <tr>
-      <th>BLog Title</th>
+      <th>Blog Title</th>
       <th>Date</th>
       <th>Body</th>
       <th colspan="4"></th>
@@ -13,10 +23,10 @@
   </thead>
 
   <tbody>
-    <%= render @blogs %>
+    %= render @blogs %>
   </tbody>
 </table>
 
 <br>
-
+-->
 <%= link_to 'New Blog', new_blog_path if logged_in?(:site_admin) %>
