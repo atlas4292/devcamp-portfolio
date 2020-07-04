@@ -1,9 +1,21 @@
-<tr>
-  <td><%= blog.title %></td>
-  <td>Published <%= distance_of_time_in_words(blog.created_at, Time.now) %> ago</td>
-  <td><%= blog.body %></td>
-  <td><%= link_to blog.status, toggle_status_blog_path(blog) %></td>
-  <td><%= link_to 'Show', blog %></td>
-  <td><%= link_to 'Edit', edit_blog_path(blog) if logged_in?(:site_admin) %></td>
-  <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } if logged_in?(:site_admin) %></td>
-</tr>
+
+
+<div class="blog-post">
+  <h2 class="blog-post-title"><%= blog.title %></h2>
+  <p class="blog-post-meta">Published <%= distance_of_time_in_words(blog.created_at, Time.now) %> ago</p>
+  <p class="blog-post-meta">
+    <%= link_to blog.status, toggle_status_blog_path(blog) %>
+    <%= link_to 'Show', blog %>
+  </p>
+  <p class="blog-post-meta">
+    <% if logged_in?(:site_admin) %>
+      <%= link_to 'Edit', edit_blog_path(blog) %>
+      <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  </p>
+  <p>
+    <%= blog.body %>
+  </p>
+</div>
+
+
