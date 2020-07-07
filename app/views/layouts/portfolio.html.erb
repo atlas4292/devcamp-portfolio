@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title><%= @page_title %></title>
   <%= csrf_meta_tags %>
   <!--This is where we set our seo meta tags - note content can be controlled through seo instance variable-->
@@ -13,15 +15,18 @@
 </head>
 
 <body>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+
+<!--<p class="notice">%= notice %></p>-->
+<!--<p class="alert">%= alert %></p>-->
+<%= render 'portfolio_header' %>
 
 <% login_helper %>
 
 <%= yield %>
 
-<%= render "shared/nav", location: 'bottom' %>
+<%= render "shared/application_nav" %>
 
 <% source_helper('blog') %>
+<%= render 'portfolios/portfolio_footer' %>
 </body>
 </html>
