@@ -1,5 +1,4 @@
-<main role="main">
-  <%= render 'portfolio_featured' %>>
+
 
   <div class="album py-5 bg-light">
     <div class="container">
@@ -12,15 +11,15 @@
     </div>
   </div>
 
-</main>
+
 
 <!--<h1>Portfolio Items</h1>-->
 <!--
 manual way to link
 <a href="portfolios/new">Create New Item</a>
--->
+--
 
-<%= link_to "Create New Item", new_portfolio_url if logged_in?(:site_admin) %>
-<!--<p>%= new_portfolio_path %></p>-->
+%= link_to "Create New Item", new_portfolio_url if logged_in?(:site_admin) %>
+!--<p>%= new_portfolio_path %></p>-->
 <!--<p>%= new_portfolio_url %></p>-->
 

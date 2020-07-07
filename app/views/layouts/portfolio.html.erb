@@ -9,7 +9,6 @@
   <meta name="keywords" content=<%= @seo_keywords %> />
 
   <%= csp_meta_tag %>
-
   <%= stylesheet_link_tag 'portfolios', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
@@ -18,15 +17,16 @@
 
 <!--<p class="notice">%= notice %></p>-->
 <!--<p class="alert">%= alert %></p>-->
-<%= render 'portfolio_header' %>
+<%= render 'portfolio_nav' %>
+<%= render 'portfolio_header' unless logged_in?(:site_admin) %>
 
 <% login_helper %>
 
 <%= yield %>
 
-<%= render "shared/application_nav" %>
+<!--%= render "shared/application_nav" %>-->
 
-<% source_helper('blog') %>
 <%= render 'portfolios/portfolio_footer' %>
+<%= source_helper("application") %>
 </body>
 </html>
