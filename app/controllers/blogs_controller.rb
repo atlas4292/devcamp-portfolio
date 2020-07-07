@@ -1,4 +1,5 @@
 class BlogsController < ApplicationController
+  #include Pagy::Backend
   before_action :set_blog, only: %i[show edit update destroy toggle_status]
   access all: %i[show index], user: { except: %i[destroy new create update edit] }, site_admin: :all
   # use the blog layout
@@ -8,6 +9,8 @@ class BlogsController < ApplicationController
   # GET /blogs.json
   def index
     @blogs = Blog.all_blogs
+    #@blogs = Blog.page(params.permit.to_h[:page]).per(5)
+    #@pagy, @blogs = pagy(Blog.all, page: params[:page], items: 5)
     # Puts debuggging example ##
     # puts "*" * 500
     # puts @blog.inspect

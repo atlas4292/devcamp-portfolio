@@ -112,6 +112,7 @@ GEM
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
     ostruct (0.1.0)
+    pagy (0.6.0)
     petergate (2.0.1)
       activerecord (> 4.0.0)
     pg (1.2.3-x64-mingw32)
@@ -220,6 +221,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   listen (~> 3.2, >= 3.2.1)
   ostruct (~> 0.1.0)
+  pagy (~> 0.6.0)
   petergate (~> 2.0, >= 2.0.1)
   pg (>= 0.18, < 2.0)
   pry-byebug
