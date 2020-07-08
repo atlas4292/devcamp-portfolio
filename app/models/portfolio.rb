@@ -23,4 +23,8 @@ class Portfolio < ApplicationRecord
     # ||= essentially saying if self.var == nil then = right side
   end
 
+  def self.by_position
+    order('position ASC')
+  end
+
 end
