@@ -1,11 +1,15 @@
-<p id="notice"><%= notice %></p>
+<!--<p id="notice">%= notice %></p>-->
 
-<h1>Blogs</h1>
+<!--<h1>Blogs</h1>-->
 
+<%= render 'blog_featured' %>
+
+<h3 class="pb-4 mb-4 font-italic border-bottom"><%= @page_title %></h3>
+<!--
 <table>
   <thead>
     <tr>
-      <th>BLog Title</th>
+      <th>Blog Title</th>
       <th>Date</th>
       <th>Body</th>
       <th colspan="4"></th>
@@ -13,10 +17,12 @@
   </thead>
 
   <tbody>
-    <%= render @blogs %>
+   %= render @blogs %>
   </tbody>
 </table>
 
 <br>
-
+-->
+<%= render @blogs %>
 <%= link_to 'New Blog', new_blog_path if logged_in?(:site_admin) %>
+<!--%= pagy_nav(@pagy).html_safe %>-->

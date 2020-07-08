@@ -1,4 +1,5 @@
 class BlogsController < ApplicationController
+  #include Pagy::Backend
   before_action :set_blog, only: %i[show edit update destroy toggle_status]
   access all: %i[show index], user: { except: %i[destroy new create update edit] }, site_admin: :all
   # use the blog layout
@@ -7,13 +8,15 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.special_blogs
+    @blogs = Blog.all_blogs
+    #@blogs = Blog.page(params.permit.to_h[:page]).per(5)
+    #@pagy, @blogs = pagy(Blog.all, page: params[:page], items: 5)
     # Puts debuggging example ##
     # puts "*" * 500
     # puts @blog.inspect
     # puts "*" * 500
     ############################
-    # Using byebug - insert in the KEY area!!!
+    # Using byebug - insert in the KEY area that needs debugging!!!
     #byebug
     @page_title = "My Portfolio Blog"
   end
@@ -76,10 +79,10 @@ class BlogsController < ApplicationController
 
   def toggle_status
 
-    if @blog.draft?
-      @blog.published!
-    elsif @blog.published?
-      @blog.draft!
+    if @blog.Draft?
+      @blog.Published!
+    elsif @blog.Published?
+      @blog.Draft!
     end
 
     respond_to do |format|

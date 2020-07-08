@@ -1,28 +1,46 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title><%= @page_title %></title>
-  <%= csrf_meta_tags %>
-  <!--This is where we set our seo meta tags - note content can be controlled through seo instance variable-->
-  <meta name="keywords" content=<%= @seo_keywords %> />
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title><%= @page_title %></title>
+    <%= csrf_meta_tags %>
+    <!--This is where we set our seo meta tags - note content can be controlled through seo instance variable-->
+    <meta name="keywords" content=<%= @seo_keywords %> />
 
-  <%= csp_meta_tag %>
+    <%= csp_meta_tag %>
 
-  <%= stylesheet_link_tag 'blogs', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-</head>
+    <%= stylesheet_link_tag 'blogs', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
 
-<body>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+  <body>
+    <div class="container">
+      <!-- start of nav -->
+      <%= render 'blog_nav' %>
+      <!-- end of nav -->
 
+      <!-- start of blog header -->
+      <%= render 'blog_header' %>
+      <!-- end of blog header -->
+    </div>
 
-<% login_helper %>
-<%= yield %>
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8 blog-main">
+          <% login_helper %>
 
-<%= render "shared/nav", location: 'bottom' %>
+          <%= yield %>
 
-<%= source_helper('blog') %>
+          <%= source_helper('blog') %>
+        </div>
 
-</body>
+        <%= render 'blog_sidebar' %>
+
+      </div>
+    </main>
+
+    <%= render 'blog_footer' %>
+
+  </body>
 </html>

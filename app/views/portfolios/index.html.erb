@@ -1,11 +1,25 @@
-<h1>Portfolio Items</h1>
+
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row">
+
+        <!-- to bring in this partial we need to do this because our controller name is portfolios NOT portfolio_items -->
+        <%= render partial: 'portfolio_item', collection: @portfolio_items %>
+
+      </div>
+    </div>
+  </div>
+
+
+
+<!--<h1>Portfolio Items</h1>-->
 <!--
 manual way to link
 <a href="portfolios/new">Create New Item</a>
--->
-<%= link_to "Create New Item", new_portfolio_url if logged_in?(:site_admin) %>
-<!--<p>%= new_portfolio_path %></p>-->
+--
+
+%= link_to "Create New Item", new_portfolio_url if logged_in?(:site_admin) %>
+!--<p>%= new_portfolio_path %></p>-->
 <!--<p>%= new_portfolio_url %></p>-->
 
-<!-- to bring in this partial we need to do this because our controller name is portfolios NOT portfolio_items -->
-<%= render partial: 'portfolio_item', collection: @portfolio_items %>
